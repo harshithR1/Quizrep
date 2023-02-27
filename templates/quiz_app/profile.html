@@ -1,0 +1,62 @@
+
+
+{% extends 'layout.html' %}
+
+{% block title %}
+
+Profile Page
+
+{% endblock %}
+
+
+{% block body_block %}
+
+<br>
+
+<div style="text-align:center;">
+    <ol>
+        <h2 style="color:white">Name : {{user.username}}</h2>
+        <h2 style="color:white">Email : {{user.email}}</h2>
+    </ol>
+
+
+
+    <h2 style="color:white">{{ text_1 }}</h2>
+
+
+        {% if quiz_list %}
+
+            {% for name in quiz_list %}
+
+<div>
+            <h3><a href="{% url 'quiz_app:quiz_questions' category_id=name.id %}"><li>{{ name.quiz_name }}</li></a></h3>
+
+</div>
+            {% endfor %}
+
+<!--                    <div class="row">-->
+<!--                {% for category in data %}-->
+<!--                <div class="col-md-4">-->
+
+<!--                            <h5 class="card-title"><a href="{% url 'quiz_app:quiz_questions' name.id %}">{{category.title}}</a></h5>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                {% endfor %}-->
+<!--                </div>-->
+
+        {% else %}
+
+            <h3>No Quiz in the List</h3>
+
+        {% endif %}
+
+
+
+</div>
+
+
+
+
+
+{% endblock %}
